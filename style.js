@@ -10,6 +10,10 @@ function play()
 {
     song.play();
 }
+function stop()
+{
+    song.stop();
+}
 function setup() {
     canvas = createCanvas(600, 500);
     canvas.center();
@@ -22,6 +26,27 @@ function setup() {
 
 function draw() {
     image(video, 0, 0, 600, 500);
+    fill("#FAF9D2");
+    stroke("#FAFAFA");
+if(scoreLeftWrist>0.2)
+{
+    circle(leftWristX,leftWristY,20);
+    InNumberleftWristY=Number(leftWristY);
+    remove_decimals=floor(InNumberleftWristY);
+    volume=remove_decimals/500;
+    document.getElementById("volume").innerHTML="Volume = " + volume;
+    song.setVolume(volume);
+
+    if(Chop_Suey=False)
+    {
+      song_varible=play();
+
+    }
+}
+
+}
+function isPlaying(){
+    song_varible.isPlaying();
 }
 function gotPoses(results)
 {
